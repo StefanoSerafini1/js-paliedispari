@@ -29,12 +29,12 @@ function inversione(parola){
 //Dichiariamo chi ha vinto in base alla scelta pario o dispari fatta all'inizio dall'utente.
 
 var pod=prompt('Scegli pari o dispari');
-var num=parseInt(prompt('Inserisci un numero da 1 a 5'));
 //controllo se inserito veramnete pari o dispari
 if(pod !== 'pari' &&  pod !== 'dispari'){
   console.log('Scegli tra pari o dispari');
   var pod=prompt('Scegli pari o dispari');
 }
+var num=parseInt(prompt('Inserisci un numero da 1 a 5'));
 //controllo se numero != da volore richiesto
 if(num < 1 && num > 5){
   console.log('Inserisci un numero da 1 a 5');
