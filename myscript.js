@@ -21,3 +21,39 @@ function inversione(parola){
   var inv= parola.split('').reverse().join('');
   return inv;
 }
+
+//secondo es:L'utente inserisce un numero da 1 a 5.
+//Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
+//Sommiamo i due numeri
+//Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
+//Dichiariamo chi ha vinto in base alla scelta pario o dispari fatta all'inizio dall'utente.
+
+var pod=prompt('Scegli pari o dispari');
+var num=prompt('Inserisci un numero da 1 a 5');
+
+if(pod !== 'pari' &&  pod !== 'dispari'){
+  console.log('Scegli tra pari o dispari');
+  var pod=prompt('Scegli pari o dispari');
+}
+
+if(num < 1 && num > 5){
+  console.log('Inserisci un numero da 1 a 5');
+  var num=prompt('Inserisci un numero da 1 a 5');
+}
+
+console.log('scelta utente: ' + pod + 'Numero scelto dal utente ' + num);
+
+var random=generazione();
+console.log('Numero generato: ' + random);
+
+var somma= num + random;
+console.log('La somma dei due numeri è: ' + somma);
+
+var vittoria=controllo(somma);
+
+
+
+function generazione(){
+  var n = Math.floor( Math.random() * 5 + 1);
+  return n;
+}
