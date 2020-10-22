@@ -30,37 +30,44 @@ function inversione(parola){
 
 var pod=prompt('Scegli pari o dispari');
 var num=parseInt(prompt('Inserisci un numero da 1 a 5'));
-
+//controllo se inserito veramnete pari o dispari
 if(pod !== 'pari' &&  pod !== 'dispari'){
   console.log('Scegli tra pari o dispari');
   var pod=prompt('Scegli pari o dispari');
 }
-
+//controllo se numero != da volore richiesto
 if(num < 1 && num > 5){
   console.log('Inserisci un numero da 1 a 5');
   var num=prompt('Inserisci un numero da 1 a 5');
 }
 
-console.log('scelta utente: ' + pod + ' Numero scelto dal utente ' + num);
-
+console.log('scelta utente: ' + pod + '   Numero scelto dal utente ' + num);
+document.getElementById('scelte').innerHTML = 'scelta utente: ' + pod + ' Numero scelto dal utente ' + num;
+//richiamo funzione numero random da 1 a 5
 var random=generazione();
 console.log('Numero generato: ' + random);
+document.getElementById('random').innerHTML ='Numero generato: ' + random
 
+//somma dei due valori
 var somma= num + random;
 console.log('La somma dei due numeri è: ' + somma);
-
+document.getElementById('somma').innerHTML ='La somma dei due numeri è: ' + somma;
+//richiamo delle due funzioni controllo della somma se pari o dispari
+//controllo della vittoria in base a scelta utente
 var controllo=controllo(somma);
 var vittoria=vincente(pod,controllo);
-
-console.log('La somma dei due numeri è: ' + somma + 'ed è ' + controllo);
+//stampe finali
+console.log('La somma è:  ' + controllo);
 console.log(vittoria);
+document.getElementById('controllo').innerHTML ='La somma è: ' + controllo;
+document.getElementById('vittoria').innerHTML =vittoria;
 
-
+//funz numero random
 function generazione(){
   var n = Math.floor( Math.random() * 5 + 1);
   return n;
 }
-
+//funz controllo somma se pari o dispari
 function controllo(somma){
   var vitt='';
 
@@ -72,7 +79,7 @@ function controllo(somma){
     return vitt;
   }
 }
-
+//funz per capire chi ha vinto in base a scelta utente
 function vincente(pod,controllo){
   var vincitore='';
   if(pod === controllo){
