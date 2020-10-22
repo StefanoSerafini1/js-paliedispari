@@ -29,7 +29,7 @@ function inversione(parola){
 //Dichiariamo chi ha vinto in base alla scelta pario o dispari fatta all'inizio dall'utente.
 
 var pod=prompt('Scegli pari o dispari');
-var num=prompt('Inserisci un numero da 1 a 5');
+var num=parseInt(prompt('Inserisci un numero da 1 a 5'));
 
 if(pod !== 'pari' &&  pod !== 'dispari'){
   console.log('Scegli tra pari o dispari');
@@ -41,7 +41,7 @@ if(num < 1 && num > 5){
   var num=prompt('Inserisci un numero da 1 a 5');
 }
 
-console.log('scelta utente: ' + pod + 'Numero scelto dal utente ' + num);
+console.log('scelta utente: ' + pod + ' Numero scelto dal utente ' + num);
 
 var random=generazione();
 console.log('Numero generato: ' + random);
@@ -49,11 +49,37 @@ console.log('Numero generato: ' + random);
 var somma= num + random;
 console.log('La somma dei due numeri è: ' + somma);
 
-var vittoria=controllo(somma);
+var controllo=controllo(somma);
+var vittoria=vincente(pod,controllo);
 
+console.log('La somma dei due numeri è: ' + somma + 'ed è ' + controllo);
+console.log(vittoria);
 
 
 function generazione(){
   var n = Math.floor( Math.random() * 5 + 1);
   return n;
+}
+
+function controllo(somma){
+  var vitt='';
+
+  if(somma % 2 == 0){
+     vitt='pari';
+    return vitt;
+  }else{
+    vitt='dispari';
+    return vitt;
+  }
+}
+
+function vincente(pod,controllo){
+  var vincitore='';
+  if(pod === controllo){
+    vincitore='HAI VINTO';
+    return vincitore;
+  }else{
+    vincitore='HAI PERSO';
+    return vincitore;
+  }
 }
